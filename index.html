@@ -69,13 +69,18 @@ body{
 /* Screens */
 .screen {
     width:100%;
-    min-height:100vh;
-    display:block;
-    padding:2vw 5vw;   /* reduce top/bottom padding */
+    min-height:auto;   /* let content define height */
+    display:block;     /* no flex centering */
+    padding:2vw 5vw;   /* small top/bottom padding */
     opacity:0;
     pointer-events:none;
     transition:1s;
     z-index:2;
+}
+
+#screen2, #screen3, #celebrationScreen {
+    padding-top:5vw;   /* starts closer to top */
+    padding-bottom:5vw;
 }
 .active{
     opacity:1;
@@ -195,6 +200,12 @@ canvas{
     }
     button{ font-size:5vw; padding:3vw 6vw; }
     .slideshow{ width:95vw; }
+}
+    @media only screen and (max-width:768px){
+    #screen2, #screen3, #celebrationScreen {
+        padding-top:3vw;
+        padding-bottom:3vw;
+    }
 }
 </style>
 </head>
