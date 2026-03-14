@@ -67,11 +67,11 @@ body{
 }
 
 /* Screens */
-.screen{
+.screen {
     width:100%;
-    min-height:100vh;   /* full screen but can grow */
-    display:block;      /* allows content to flow for scrolling */
-    padding:5vw;
+    min-height:100vh;
+    display:block;
+    padding:2vw 5vw;   /* reduce top/bottom padding */
     opacity:0;
     pointer-events:none;
     transition:1s;
@@ -189,9 +189,10 @@ canvas{
 100%{transform:translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.3);opacity:0;}
 }
 
-/* Mobile responsiveness */
 @media only screen and (max-width:768px){
-    .screen { padding:5vw 3vw; }
+    .screen { 
+        padding:2vw 3vw;  /* smaller padding top/bottom */
+    }
     button{ font-size:5vw; padding:3vw 6vw; }
     .slideshow{ width:95vw; }
 }
