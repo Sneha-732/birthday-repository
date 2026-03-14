@@ -63,7 +63,7 @@ body{
     font-family:'Great Vibes', cursive;
     font-size:6vw;
     text-shadow:0 0 2vw rgba(255,255,255,0.8);
-    margin:0; /* remove space */
+    margin:0 !important; /* remove space */
 }
 
 /* Screens */
@@ -74,7 +74,7 @@ body{
     flex-direction:column;
     justify-content:flex-start; /* start at top */
     align-items:center;
-    padding:2vw 5vw; /* small padding, top space controlled */
+    padding:0 !important;
     opacity:0;
     pointer-events:none;
     transition:1s;
@@ -82,8 +82,8 @@ body{
 }
 
 .screen h1, .screen h2, .screen p, .screen img {
-    margin:0; /* remove default spacing */
-    padding:0;
+    margin:0 !important; /* remove default spacing */
+    padding:0 !important;
 }
 
 .active{
@@ -101,7 +101,7 @@ button{
     font-size:4vw;
     font-weight:600;
     cursor:pointer;
-    margin-top:2vh;
+    margin-top:0 !important;
     box-shadow:0 2vw 4vw rgba(0,0,0,0.3);
     transition:0.3s;
 }
@@ -118,7 +118,7 @@ button:hover{
     object-fit:cover;
     border-radius:2vw;
     box-shadow:0 2vw 5vw rgba(0,0,0,0.5);
-    margin:2vw 0;
+    margin:0 !important;
 }
 .photo-container{
     display:flex;
@@ -126,13 +126,13 @@ button:hover{
     align-items:center;
     flex-wrap:wrap;
     gap:2vw;
-    margin-bottom:2vh;
+    margin-bottom:0 !important;
 }
 
 /* Message & slideshow */
 #message{
     min-height:3vh;
-    margin-top:1vh;
+    margin-top:0 !important;
     font-size:4vw;
 }
 .slideshow{
