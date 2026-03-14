@@ -66,21 +66,27 @@ body{
     margin-bottom:2vh;
 }
 
-/* Screens */
 .screen {
-    width:100%;
-    min-height:auto;   /* let content define height */
-    display:block;     /* no flex centering */
-    padding:2vw 5vw;   /* small top/bottom padding */
-    opacity:0;
-    pointer-events:none;
-    transition:1s;
-    z-index:2;
+    width: 100%;
+    min-height: 100vh; /* full screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* start from top */
+    align-items: center;
+    padding: 2vw 5vw;
+    opacity: 0;
+    pointer-events: none;
+    transition: 1s;
+    z-index: 2;
+}
+
+.screen h1, .screen h2, .screen p, .screen img {
+    margin: 0; /* remove default margins */
+    padding: 0;
 }
 
 #screen2, #screen3, #celebrationScreen {
-    padding-top:0;   /* starts closer to top */
-    padding-bottom:0;
+    padding-top: 3vw; /* optional small top spacing */
 }
 .active{
     opacity:1;
@@ -194,29 +200,6 @@ canvas{
 100%{transform:translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.3);opacity:0;}
 }
 
-@media only screen and (max-width:768px){
-    .screen { 
-        padding:2vw 3vw;  /* smaller padding top/bottom */
-    }
-    button{ font-size:5vw; padding:3vw 6vw; }
-    .slideshow{ width:95vw; }
-}
-    @media only screen and (max-width:768px){
-    #screen2, #screen3, #celebrationScreen {
-        padding-top:3vw;
-        padding-bottom:3vw;
-    }
-}
-    .screen h1, .screen h2, .screen p {
-    margin-top: 1vw;   /* small top space */
-    margin-bottom: 1vw; /* small bottom space */
-}
-    @media only screen and (max-width:768px){
-    .screen h1, .screen h2, .screen p {
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-    }
-}
 </style>
 </head>
 <body>
