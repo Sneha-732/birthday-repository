@@ -90,7 +90,7 @@ body, html{width:100%;height:100%;overflow:hidden; font-family:'Poppins', sans-s
 <!-- Countdown Screen -->
 <div class="screen active" id="countdownScreen">
     <div>Waiting for Surprise</div>
-    <div id="countdown">12:18:00</div>
+    <div id="countdown">01:00:00</div>
 </div>
 
 <!-- Intro Screens -->
@@ -166,6 +166,13 @@ body, html{width:100%;height:100%;overflow:hidden; font-family:'Poppins', sans-s
 </div>
 
 <script>
+    const noMessagesArray = [
+    "😢 Oops! Don’t be sad! You’re my everything! 💖",
+    "🥺 Please say yes! You’re my lifeline 🌟",
+    "💔 Aww, I can’t live without you!",
+    "😔 Don’t worry, I still love you tons 💞",
+    "😢 Hey! Don’t make me sad, my Buggu 💖"
+];
 const countdownScreen = document.getElementById('countdownScreen');
 const messageScreen = document.getElementById('messageScreen');
 const photoScreen = document.getElementById('photoScreen');
@@ -184,7 +191,7 @@ const introScreens = [
 // Countdown
 let now = new Date();
 let countDownTime = new Date();
-// countDownTime.setHours(12, 20, 0, 0);
+countDownTime.setHours(1, 0, 0, 0);
 if(now > countDownTime) countDownTime.setDate(countDownTime.getDate()+1);
 const countdownElem = document.getElementById('countdown');
 
@@ -203,11 +210,21 @@ function updateCountdown(){
 let countdownInterval = setInterval(updateCountdown,1000);
 updateCountdown();
 // Instead of alert, show message on screen
+const noBtn = document.getElementById('noBtn');
 const noMessage = document.getElementById('noMessage');
-document.getElementById('noBtn').addEventListener('click', () => {
+
+noBtn.addEventListener('click', () => {
+    // Pick a random message
+    const randomIndex = Math.floor(Math.random() * noMessagesArray.length);
+    noMessage.innerHTML = noMessagesArray[randomIndex];
+    
+    // Show the message
     noMessage.style.display = 'block';
+
     // Optional: hide after 3 seconds
-    setTimeout(() => { noMessage.style.display = 'none'; }, 3000);
+    setTimeout(() => {
+        noMessage.style.display = 'none';
+    }, 3000);
 });
 // Show intro screens one by one
 function startIntroSequence(){
