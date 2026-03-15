@@ -3,422 +3,249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Royal Buggu 👑❤️</title>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<title>For My Buggu ❤️</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{
-    font-family:'Poppins',sans-serif;
-    min-height:100vh;
-    overflow-x:hidden;
-    overflow-y:auto;
-    color:white;
-    text-align:center;
-    background:linear-gradient(-45deg,#ff0844,#ff5f6d,#ff758c,#ff0844);
-    background-size:400% 400%;
-    animation:bgMove 8s ease infinite;
-}
-@keyframes bgMove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+body, html{width:100%;height:100%;overflow:hidden; font-family:'Poppins', sans-serif;}
+.screen{width:100%;height:100%;position:absolute;top:0;left:0;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:all 0.8s ease;opacity:0;pointer-events:none;}
+.active{opacity:1;pointer-events:auto;}
+
+/* Countdown */
+#countdownScreen{background:black;color:white;font-size:3rem;display:flex;align-items:center;justify-content:center;flex-direction:column; font-family:'Dancing Script', cursive;}
+
+/* Intro Screens */
+.screen.intro{
+  background:black;
+  color:white;
+  font-size:2.2rem;
+  text-align:center;
+  padding:20px;
+  font-family:'Pacifico', cursive; /* decorative font */
 }
 
-/* Intro Screen */
-#introScreen{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100vh;
-    background:black;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:100;
-    font-family:'Pacifico',cursive;
-    font-size:8vw;
-    text-align:center;
-    text-transform:capitalize;
-    letter-spacing:0.3vw;
+/* Message Screen */
+#messageScreen{
+  background:linear-gradient(to bottom, #ffc0cb, #ffb6c1);
+  color:#fff;
+  text-align:center;
+  padding:20px;
+  font-family:'Dancing Script', cursive;
 }
-.fadeOut{
-    opacity:0;
-    pointer-events:none;
-    transition:1s;
-}
-#introText{
-  font-family:'Pacifico',cursive;
-  font-size:10vw;
-  text-shadow:0 0 2vw rgba(255,255,255,0.8);
-  margin-bottom:0; /* remove space */
-}
-
-/* Headings */
-.scHeading{
-    font-family:'Great Vibes', cursive;
-    font-size:6vw;
-    text-shadow:0 0 2vw rgba(255,255,255,0.8);
-    margin:0 !important; /* remove space */
-}
-
-/* Screens */
-.screen {
-    width:100%;
-    min-height:100vh; /* full viewport height */
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start; /* start at top */
-    align-items:center;
-    padding:0 !important;
-    opacity:0;
-    pointer-events:none;
-    transition:1s;
-    z-index:2;
-}
-
-.screen h1, .screen h2, .screen p, .screen img {
-    margin:0 !important; /* remove default spacing */
-    padding:0 !important;
-}
-
-.active{
-    opacity:1;
-    pointer-events:auto;
-}
+#messageScreen img{max-width:300px;border-radius:20px;margin:20px 0;}
 
 /* Buttons */
-button{
-    padding:1vw 5vw;
-    border:none;
-    border-radius:50px;
-    background:linear-gradient(45deg,#ffffff,#ffe6ea);
-    color:#ff0844;
-    font-size:4vw;
-    font-weight:600;
-    cursor:pointer;
-    margin-top:0 !important;
-    box-shadow:0 2vw 4vw rgba(0,0,0,0.3);
-    transition:0.3s;
+.btn{
+  padding:12px 25px;
+  background:#ff3366;
+  color:white;
+  border:none;
+  border-radius:30px;
+  font-size:1rem;
+  cursor:pointer;
+  transition:0.3s;
+  font-family:'Poppins', sans-serif;
 }
-button:hover{
-    transform:scale(1.1);
-    box-shadow:0 3vw 5vw rgba(0,0,0,0.5);
-}
+.btn:hover{background:#ff6699;}
 
-/* Images */
-.photo, .him{
-    width:80%;
-    max-width:90%;
-    height:auto;
-    object-fit:cover;
-    border-radius:2vw;
-    box-shadow:0 2vw 5vw rgba(0,0,0,0.5);
-    margin:0 !important;
-}
-.photo-container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:2vw;
-    margin-bottom:0 !important;
-}
+/* Photo Screen */
+#photoScreen{background:#ffe6f0;color:#333;text-align:center;padding:20px;overflow-y:auto;font-family:'Dancing Script', cursive;}
+#photoScreen img{width:120px;height:120px;border-radius:15px;margin:10px;object-fit:cover;cursor:pointer;transition:0.3s;}
+#photoScreen img:hover{transform:scale(1.1);}
 
-/* Message & slideshow */
-#message{
-    min-height:3vh;
-    margin-top:0 !important;
-    font-size:4vw;
-}
-.slideshow{
-    width:80vw;
-    max-width:95%;
-    height:auto;
-    aspect-ratio:4/3;
-    overflow:hidden;
-    border-radius:2vw;
-    box-shadow:0 2vw 5vw rgba(0,0,0,0.5);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-bottom:2vh;
-    position:relative;
-}
-.slideshow img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    position:absolute;
-    opacity:0;
-    transition:1s;
-}
-.slideshow img.activeSlide{
-    opacity:1;
-}
+/* Memories */
+#memoriesScreen{background:#ffe6f0;color:#333;text-align:center;padding:20px;font-family:'Dancing Script', cursive;}
+#slideshow{width:300px;height:300px;margin:20px auto;overflow:hidden;border-radius:20px;}
+#slideshow img{width:100%;height:100%;object-fit:cover;display:none;}
+#slideshow img.activeSlide{display:block;}
 
-/* Celebration screen */
-#celebrationScreen .photo{
-    width:30vw;
-    max-width:90%;
-    height:auto;
-    max-height:70vh;
-    border-radius:2vw;
-    box-shadow:0 2vw 5vw rgba(0,0,0,0.5);
-}
+/* Proposal */
+#proposalScreen{background:#ffb6c1;color:#fff;text-align:center;padding:20px;font-family:'Dancing Script', cursive;}
+#proposalScreen button{margin:10px;}
 
-/* Canvas & hearts */
-canvas{
-    position:absolute;
-    top:0;
-    left:0;
-    pointer-events:none;
-    z-index:1;
-}
-.floatingHeart{
-    position:absolute;
-    bottom:-2vh;
-    font-size:4vw;
-    animation:floatUp 6s linear infinite;
-    opacity:0.7;
-}
+/* Yes Screen */
+#yesScreen{background:#ffc0cb;color:white;text-align:center;padding:20px;position:relative;overflow:hidden;font-family:'Dancing Script', cursive;}
+#yesScreen img{width:250px;border-radius:20px;margin:20px 0;}
 
-/* Animations */
-@keyframes floatUp{
-0%{transform:translateY(0);opacity:0;}
-50%{opacity:1;}
-100%{transform:translateY(-100vh);opacity:0;}
-}
-@keyframes explode{
-0%{transform:translate(-50%,-50%) scale(0.5);opacity:1;}
-100%{transform:translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.3);opacity:0;}
-}
+/* Hearts Animation */
+.heart{position:absolute;width:20px;height:20px;background:red;transform:rotate(-45deg);animation:float 5s linear infinite;}
+.heart:before,.heart:after{content:"";position:absolute;width:20px;height:20px;background:red;border-radius:50%;}
+.heart:before{top:-10px;left:0;}
+.heart:after{left:10px;top:0;}
+@keyframes float{0%{transform:translateY(0) rotate(-45deg);opacity:1;}100%{transform:translateY(-600px) rotate(-45deg);opacity:0;}}
 
 /* Responsive */
-@media only screen and (max-width:768px){
-    .screen{
-        padding:2vw 3vw;
-    }
-    button{ font-size:5vw; padding:3vw 6vw; }
-    .slideshow{ width:95vw; }
+@media(max-width:768px){
+    #countdownScreen{font-size:2rem;}
+    #messageScreen img{max-width:200px;}
+    #photoScreen img{width:80px;height:80px;}
+    #slideshow{width:250px;height:250px;}
+    #yesScreen img{width:180px;}
 }
-
 </style>
 </head>
 <body>
-<canvas id="fireworks"></canvas>
 
-<!-- INTRO SCREEN -->
-<div id="introScreen">
-<h1 id="introText"></h1>
-</div>
-
-<!-- SCREEN 1 -->
-<div class="screen" id="screen1">
-<h1 class="scHeading">A Little Surprise For You</h1>
-<div id="countdown" style="font-size:5vw;margin-top:2vh;"></div>
-<img id="birthdayImg" src="him2.jpg" class="photo" style="display:none;margin-top:2vh;">
-<button id="openHeartBtn" onclick="openLove()">Open My Heart 💌</button>
+<!-- Countdown Screen -->
+<div class="screen active" id="countdownScreen">
+    <div>Waiting for Surprise</div>
+    <div id="countdown">12:18:00</div>
 </div>
 
-<!-- SCREEN 2 -->
-<div class="screen" id="screen2">
-<h1 style="font-size:6vw;">My Royal Buggu 👑</h1>
-<div class="photo-container">
-<img src="him1.jpg" class="him">
-<img src="him3.jpg" class="him">
-<img src="him5.jpg" class="him">
-<img src="him6.jpg" class="him">
-<img src="him7.jpg" class="him">
-<img src="him8.jpg" class="him">
-<img src="him9.jpg" class="him">
-<img src="him10.jpg" class="him">
-</div>
-<p id="typingText" style="font-size:4vw;max-width:90%;margin:auto;"></p>
-<button onclick="showUs()">Our Memories 💞</button>
+<!-- Intro Screens -->
+<div class="screen intro" id="intro1" style="font-weight: bolder; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);     
+    font-family: 'Pacifico', cursive; color: rgb(187, 107, 107)"> A little surprise for your Birthday 🎂</div>
+<div style="font-weight: bolder; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);     
+    font-family: 'Pacifico', cursive; color: rgb(187, 107, 107)" class="screen intro" id="intro2">Meri Jaan 💖</div>
+<div class="screen intro" style="font-weight: bolder; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);     
+    font-family: 'Pacifico', cursive; color: rgb(187, 107, 107)" id="intro3">My Lifeline🌟</div>
+<div class="screen intro" style="font-weight: bolder; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);     
+    font-family: 'Pacifico', cursive; color: rgb(187, 107, 107)"id="intro4">Mera Buggu 💞</div>
+
+<!-- Message Screen -->
+<div class="screen" id="messageScreen" style="font-weight: bolder;  
+    font-family: 'Pacifico', cursive; color: rgb(187, 107, 107)">
+    <div>A little surprise for you 💖<br>Happy birthday bcha 💞</div>
+    <img src="him2.jpg" alt="Photo">
+    <button class="btn" id="openHeartBtn">Open My Heart 💖 </button>
 </div>
 
-<!-- SCREEN 3 -->
-<div class="screen" id="screen3">
-<h1 style="font-size:6vw;">Us ❤️</h1>
-<div class="slideshow">
-<img src="us1.jpg" class="activeSlide">
-<img src="us2.jpg">
-<img src="us3.jpg">
-</div>
-<p style="font-size:4vw;max-width:90%;margin:auto;margin-top:2vh;">Every memory with you is magic. I choose you today, tomorrow and always.</p>
-<button onclick="finalQuestion()">One Last Question 💍</button>
+<!-- Photo Screen -->
+<div class="screen" id="photoScreen">
+    <h2>Happy Birthday Buggu</h2>
+    <div id="photoContainer">
+        <img src="him1.jpg" alt="">
+        <img src="him2.jpg" alt="">
+        <img src="him3.jpg" alt="">
+        <img src="him4.jpg" alt="">
+        <img src="him5.jpg" alt="">
+        <img src="him6.jpg" alt="">
+        <img src="him7.jpg" alt="">
+        <img src="him8.jpg" alt="">
+        <img src="him9.jpg" alt="">
+        <img src="him10.jpg" alt="">
+        <img src="him11.jpg" alt="">
+    </div>
+    <button class="btn" id="toMemories">Us Forever💞</button>
 </div>
 
-<!-- SCREEN 4 -->
-<div class="screen" id="screen4">
-<h1 style="font-size:6vw;">Will You Stay Mine Forever? 💖</h1>
-<button onclick="celebrate()">YES ❤️</button>
-<button onclick="noClicked(this)">NO 🙈</button>
-<div id="message"></div>
+<!-- Memories Screen -->
+<div class="screen" id="memoriesScreen">
+    <h2>Us Memories💖💖</h2>
+    <div id="slideshow">
+        <img src="us1.jpg" class="activeSlide">
+        <img src="us2.jpg">
+        <img src="us3.jpg">
+    </div>
+    <button class="btn" id="lastQuestion">Last Question</button>
 </div>
 
-<!-- SCREEN 5 -->
-<div class="screen" id="celebrationScreen">
-<h1 style="font-size:6vw;">Forever With You 👑❤️</h1>
-<img src="us3.jpg" class="photo">
-<h2 style="font-size:5vw;">Happy Birthday My King 🎉</h2>
+<!-- Proposal Screen -->
+<!-- Proposal Screen -->
+<!-- Proposal Screen -->
+<div class="screen" id="proposalScreen">
+    <h2>Will you stay mine forever?</h2>
+    <button class="btn" id="yesBtn">Yes</button>
+    <button class="btn" id="noBtn">No</button>
+
+    <!-- No message display -->
+    <div id="noMessage" style="display:none; margin-top:20px; padding:15px; 
+        background:#ff99aa; color:white; border-radius:20px; font-weight:bold; 
+        font-size:1.5rem; text-align:center; animation:fadeIn 0.8s;">
+        😢 Oops! Don’t be sad! You’re my everything! 💖
+    </div>
+</div>
+
+<!-- Yes Screen -->
+<div class="screen" id="yesScreen">
+    <h2>Yay! ❤️</h2>
+    <img src="us3.jpg" alt="Us">
+    <div style="font-weight: bolder; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);     
+    font-family: 'Pacifico', cursive; color: rgb(187, 107, 107)">Forever yours 💖</div>
 </div>
 
 <script>
-// Intro Screen
-let introMessages=["A Special Birthday Surprise 🎁","For Someone Very Important ❤️","MY World 🌍❤️","My Lifeline ❤️‍🩹","Meri Jaan ❤️🥰","Mera Buggu ❤️😘"];
-let introIndex=0;
-let introText=document.getElementById("introText");
-function showIntro(){
-    if(introIndex<introMessages.length){
-        introText.innerHTML=introMessages[introIndex];
-        introIndex++;
-        setTimeout(showIntro,2000);
-    } else {
-        document.getElementById("introScreen").classList.add("fadeOut");
-        setTimeout(()=>{
-            const intro=document.getElementById("introScreen");
-            intro.parentNode.removeChild(intro);  // remove to allow scrolling
-            document.getElementById("screen1").classList.add("active");
-        },1000);
-    }
-}
-showIntro();
+const countdownScreen = document.getElementById('countdownScreen');
+const messageScreen = document.getElementById('messageScreen');
+const photoScreen = document.getElementById('photoScreen');
+const memoriesScreen = document.getElementById('memoriesScreen');
+const proposalScreen = document.getElementById('proposalScreen');
+const yesScreen = document.getElementById('yesScreen');
 
-// Typing text
-let text="You are my happiness, my king, my forever. Today is your day.";
-let i=0;
-function typeText(){
-if(i<text.length){
-document.getElementById("typingText").innerHTML += text.charAt(i);
-i++;
-setTimeout(typeText,60);
-}}
-setTimeout(typeText,800);
-
-// Floating Hearts
-setInterval(()=>{
-let heart=document.createElement("div");
-heart.innerHTML="❤️";
-heart.className="floatingHeart";
-heart.style.left=Math.random()*100+"%";
-heart.style.fontSize=(Math.random()*4+2)+"vw";
-document.body.appendChild(heart);
-setTimeout(()=>heart.remove(),6000);
-},500);
+// Intro messages screens
+const introScreens = [
+    document.getElementById('intro1'),
+    document.getElementById('intro2'),
+    document.getElementById('intro3'),
+    document.getElementById('intro4')
+];
 
 // Countdown
-let target = new Date();
-target.setHours(0,30,0);
-let blastDone=false;
-let countdownDiv = document.getElementById("countdown");
-let birthdayImg = document.getElementById("birthdayImg");
+let now = new Date();
+let countDownTime = new Date();
+// countDownTime.setHours(12, 20, 0, 0);
+if(now > countDownTime) countDownTime.setDate(countDownTime.getDate()+1);
+const countdownElem = document.getElementById('countdown');
+
 function updateCountdown(){
-    let now = new Date();
-    let diff = target-now;
-    if(diff<=0 && !blastDone){
-        countdownDiv.innerHTML = "HAPPY BIRTHDAY MERA BUGGU MY BACHA 💖🎂🎁";
-        countdownDiv.style.fontFamily = 'Poppins';
-        birthdayImg.style.display="block";
-        startFireworks(8000);
-        blastDone=true;
-        return;
-    }
-    if(!blastDone){
-        let mins=Math.floor(diff/60000);
-        let secs=Math.floor((diff%60000)/1000);
-        countdownDiv.innerHTML = "Royal Surprise In: "+mins+"m "+secs+"s";
+    let now = new Date().getTime();
+    let distance = countDownTime - now;
+    let hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+    let minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+    let seconds = Math.floor((distance % (1000*60))/1000);
+    countdownElem.innerHTML = (hours<10?'0'+hours:hours)+":"+(minutes<10?'0'+minutes:minutes)+":"+(seconds<10?'0'+seconds:seconds);
+    if(distance <=0){
+        clearInterval(countdownInterval);
+        startIntroSequence();
     }
 }
-setInterval(updateCountdown,1000);
+let countdownInterval = setInterval(updateCountdown,1000);
 updateCountdown();
-
-// Fireworks
-let canvas = document.getElementById("fireworks");
-let ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-function startFireworks(duration=8000){
-    let interval = setInterval(()=>{
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        for(let i=0;i<120;i++){
-            ctx.beginPath();
-            ctx.arc(Math.random()*canvas.width, Math.random()*canvas.height, Math.random()*4+2, 0, 2*Math.PI);
-            ctx.fillStyle=`hsl(${Math.random()*360},100%,60%)`;
-            ctx.fill();
+// Instead of alert, show message on screen
+const noMessage = document.getElementById('noMessage');
+document.getElementById('noBtn').addEventListener('click', () => {
+    noMessage.style.display = 'block';
+    // Optional: hide after 3 seconds
+    setTimeout(() => { noMessage.style.display = 'none'; }, 3000);
+});
+// Show intro screens one by one
+function startIntroSequence(){
+    countdownScreen.classList.remove('active');
+    let i = 0;
+    function showNext(){
+        if(i>0) introScreens[i-1].classList.remove('active');
+        if(i<introScreens.length){
+            introScreens[i].classList.add('active');
+            i++;
+            setTimeout(showNext, 1500);
+        } else {
+            messageScreen.classList.add('active');
         }
-    },200);
-    setTimeout(()=>{clearInterval(interval);ctx.clearRect(0,0,canvas.width,canvas.height);},duration);
-}
-
-// Navigation
-function openLove(){
-    document.getElementById("screen1").classList.remove("active");
-    document.getElementById("screen2").classList.add("active");
-}
-function showUs(){
-    document.getElementById("screen2").classList.remove("active");
-    document.getElementById("screen3").classList.add("active");
-    startSlideshow(); 
-}
-
-// Slideshow
-let slideInterval;
-function startSlideshow(){
-    if(slideInterval) clearInterval(slideInterval);
-    let slides = document.querySelectorAll("#screen3 .slideshow img");
-    let slideIndex = 0;
-    slides.forEach(s => s.classList.remove("activeSlide"));
-    slides[0].classList.add("activeSlide");
-    slideInterval = setInterval(()=>{
-        slides.forEach(s => s.classList.remove("activeSlide"));
-        slides[slideIndex].classList.add("activeSlide");
-        slideIndex = (slideIndex + 1) % slides.length;
-    },3000);
-}
-
-// YES/NO
-let msgs=["⚠️ Error 404: NO not available 😌","🚫 Access Denied! Only YES works 👑","🙈 Oops! You misclicked!","😏 Nice try Buggu ❤️","💖 This love is permanent mode!","🔒 Locked! Destiny says YES"];
-function noClicked(btn){
-    let msgIndex = Math.floor(Math.random()*msgs.length);
-    document.getElementById("message").innerHTML = msgs[msgIndex];
-    btn.style.transform="translate("+(Math.random()*20-10)+"px,"+(Math.random()*20-10)+"px)";
-    setTimeout(()=>{btn.style.transform="translate(0,0)";},150);
-}
-function finalQuestion(){
-    document.getElementById("screen3").classList.remove("active");
-    document.getElementById("screen4").classList.add("active");
-}
-
-// Celebrate YES
-function celebrate(){
-    document.getElementById("screen4").classList.remove("active");
-    document.getElementById("celebrationScreen").classList.add("active");
-    startFireworks(8000);
-
-    for(let i=0;i<60;i++){
-        let heart=document.createElement("div");
-        heart.innerHTML="❤️";
-        heart.style.position="absolute";
-        heart.style.left="50%";
-        heart.style.top="50%";
-        heart.style.fontSize=(Math.random()*3+2)+"vw";
-        heart.style.transform="translate(-50%,-50%)";
-        heart.style.animation="explode 3s ease-out forwards";
-        heart.style.zIndex="5";
-        let angle=Math.random()*360*(Math.PI/180);
-        let distance=Math.random()*25+20;
-        heart.style.setProperty('--x',Math.cos(angle)*distance+'vw');
-        heart.style.setProperty('--y',Math.sin(angle)*distance+'vw');
-        document.body.appendChild(heart);
-        setTimeout(()=>heart.remove(),3000);
     }
+    showNext();
 }
+
+// Floating hearts
+function createHeart(){
+    let heart=document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left=Math.random()*window.innerWidth+'px';
+    heart.style.background='pink';
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),5000);
+}
+setInterval(createHeart,500);
+
+// Buttons
+document.getElementById('openHeartBtn').addEventListener('click',()=>{messageScreen.classList.remove('active');photoScreen.classList.add('active');});
+document.getElementById('toMemories').addEventListener('click',()=>{photoScreen.classList.remove('active');memoriesScreen.classList.add('active');});
+const slides=document.querySelectorAll('#slideshow img');
+let currentSlide=0;
+setInterval(()=>{slides[currentSlide].classList.remove('activeSlide');currentSlide=(currentSlide+1)%slides.length;slides[currentSlide].classList.add('activeSlide');},3000);
+document.getElementById('lastQuestion').addEventListener('click',()=>{memoriesScreen.classList.remove('active');proposalScreen.classList.add('active');});
+
+document.getElementById('yesBtn').addEventListener('click',()=>{proposalScreen.classList.remove('active');yesScreen.classList.add('active');});
 </script>
 </body>
 </html>
